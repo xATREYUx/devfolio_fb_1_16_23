@@ -1,0 +1,22 @@
+{
+  "projects": {
+    "default": "folio-9-26-21"
+  },
+  "targets": {
+    "folio-9-26-21": {
+      "hosting": {
+        "mightymattxp": [
+          "mightymattxp"
+        ]
+      }
+    },
+    "mightymattxp": {
+      "hosting": {
+        "mightymattxp": [
+          "mightymattxp.web.app"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
