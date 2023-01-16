@@ -4,18 +4,11 @@ import { initializeApp } from "firebase/app";
 import { getAuth, connectAuthEmulator } from "firebase/auth";
 import { getFirestore, connectFirestoreEmulator } from "firebase/firestore";
 import { getStorage, connectStorageEmulator } from "firebase/storage";
+import fb_config from "../util/fb_config.json";
 
 export const FirebaseContext = createContext({});
 
-const firebaseConfig = {
-  apiKey: "AIzaSyD-Zt55ONZkv2-VQSkNWOIa47QEEZnY2qo",
-  authDomain: "mightymattxp.firebaseapp.com",
-  projectId: "folio-9-26-21",
-  storageBucket: "folio-9-26-21.appspot.com",
-  messagingSenderId: "330015023646",
-  appId: "1:330015023646:web:4a2571f5e0156553bd040f",
-  measurementId: "G-7CWKF57RJB",
-};
+const firebaseConfig = fb_config;
 
 export const FirebaseProvider = (props) => {
   console.log("FirebaseProvider Fired...");

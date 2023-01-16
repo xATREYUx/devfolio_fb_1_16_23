@@ -22,5 +22,15 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-firebaserc
+.firebaserc 
 firebase.json
+package-lock.json
+.babelrc
+firestore.index.json
+firestore.rules
+scratch.js
+scratch2.js
+storage.rulesui-debug.log
+.firebase
+fb_config.json
+domain.js
