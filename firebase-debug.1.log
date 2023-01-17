@@ -1,0 +1,30 @@
+[debug] [2023-01-17T00:12:48.214Z] ----------------------------------------------------------------------
+[debug] [2023-01-17T00:12:48.216Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting:mightymattxp
+[debug] [2023-01-17T00:12:48.217Z] CLI Version:   11.17.0
+[debug] [2023-01-17T00:12:48.217Z] Platform:      win32
+[debug] [2023-01-17T00:12:48.217Z] Node Version:  v16.18.1
+[debug] [2023-01-17T00:12:48.218Z] Time:          Mon Jan 16 2023 19:12:48 GMT-0500 (Eastern Standard Time)
+[debug] [2023-01-17T00:12:48.218Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-01-17T00:12:48.293Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-01-17T00:12:48.294Z] > authorizing via signed-in user (mwmailing@gmail.com)
+[debug] [2023-01-17T00:12:48.294Z] [iam] checking project mightymattxp for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-01-17T00:12:48.296Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mightymattxp:testIamPermissions [none]
+[debug] [2023-01-17T00:12:48.297Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mightymattxp:testIamPermissions x-goog-quota-user=projects/mightymattxp
+[debug] [2023-01-17T00:12:48.297Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mightymattxp:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-01-17T00:12:48.737Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mightymattxp:testIamPermissions 200
+[debug] [2023-01-17T00:12:48.738Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mightymattxp:testIamPermissions {}
+[debug] [2023-01-17T00:12:48.739Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project mightymattxp:
+
+  firebase.projects.get
+  firebasehosting.sites.update
+[debug] [2023-01-17T00:12:48.742Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mightymattxp [none]
+[debug] [2023-01-17T00:12:49.136Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mightymattxp 403
+[debug] [2023-01-17T00:12:49.137Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mightymattxp {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2023-01-17T00:12:49.139Z] HTTP Error: 403, The caller does not have permission
+[debug] [2023-01-17T00:12:49.143Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Program Files\nvm\v16.18.1\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Program Files\nvm\v16.18.1\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project mightymattxp. Please make sure the project exists and your account has permission to access it.

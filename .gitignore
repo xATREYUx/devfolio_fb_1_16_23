@@ -34,3 +34,4 @@ storage.rulesui-debug.log
 .firebase
 fb_config.json
 domain.js
+storage.rules

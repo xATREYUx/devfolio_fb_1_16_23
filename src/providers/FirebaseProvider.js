@@ -7,7 +7,7 @@ import { getStorage, connectStorageEmulator } from "firebase/storage";
 import fb_config from "../util/fb_config.json";
 
 export const FirebaseContext = createContext({});
-
+console.log(fb_config);
 const firebaseConfig = fb_config;
 
 export const FirebaseProvider = (props) => {

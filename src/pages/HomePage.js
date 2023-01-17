@@ -88,7 +88,7 @@ const HomePage = () => {
             Rock for President. Birds & squirrels, home runs & touchdowns.
             Thrive, don’t survive. I could have loved Cary Grant. Port in, zone
             out. Cable guys don’t know what a packet is. I scream love and punk
-            rock at the sky. There are levels to this game.
+            rock at the sky. There are levels to this game. Blah...
           </h4>
         </div>
         <div
