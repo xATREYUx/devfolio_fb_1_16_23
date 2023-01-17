@@ -30,8 +30,9 @@ firestore.index.json
 firestore.rules
 scratch.js
 scratch2.js
-storage.rulesui-debug.log
+storage.rules
+ui-debug.log
 .firebase
 fb_config.json
 domain.js
-storage.rules
+ 
