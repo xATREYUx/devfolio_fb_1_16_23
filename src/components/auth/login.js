@@ -10,6 +10,7 @@ import FormErrors from "../form-elements/formErrors";
 import { Button, Paper, TextField } from "@mui/material";
 // import { makeStyles } from "@mui/styles";
 import { Box } from "@mui/system";
+import { theme } from "../../theme";
 
 // const useStyles = makeStyles((theme) => ({
 //   authFormContainer: {
@@ -28,7 +29,7 @@ import { Box } from "@mui/system";
 //   },
 // }));
 const LoginForm = () => {
-  const { getLoggedIn, loggedIn, loginUser } = useContext(AuthContext);
+  const { loggedIn, login } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
@@ -36,15 +37,16 @@ const LoginForm = () => {
   const navigate = useNavigate();
   // const classes = useStyles();
 
-  const login = async (e) => {
+  const onLogin = async (e) => {
+    console.log("Login Info: ", email + " " + password);
     e.preventDefault();
     try {
       const loginData = {
         email,
         password,
       };
-      const loginRes = await loginUser(loginData);
-      if (loginRes != "Login successfull") {
+      const loginRes = await login(loginData);
+      if (loginRes !== "Login successfull") {
         const error = FormErrors(loginRes);
         setLoginError(error);
       }
@@ -52,12 +54,12 @@ const LoginForm = () => {
     } catch (err) {
       console.log("Error in login function", err);
     }
-    getLoggedIn();
+    // getLoggedIn();
   };
 
   return (
     <Box
-      onSubmit={login}
+      onSubmit={onLogin}
       position="relative"
       style={{
         display: "flex",
@@ -75,7 +77,7 @@ const LoginForm = () => {
     >
       <h3
         style={{
-          //  ...theme.typography.h3,
+          ...theme.typography.h3,
           margin: 0,
         }}
       >

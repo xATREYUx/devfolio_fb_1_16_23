@@ -21,6 +21,7 @@ import FallingComponentsContainer from "../components/FallingComponentsContainer
 import { PostContext } from "../providers/PostProvider";
 import PostList from "../components/posts/postList";
 import ErrorBoundary from "../components/ErrorBoundary";
+import LetsBuild from "../components/letsBuild";
 
 const HomePage = () => {
   const { loggedIn } = useContext(AuthContext);
@@ -88,7 +89,7 @@ const HomePage = () => {
             Rock for President. Birds & squirrels, home runs & touchdowns.
             Thrive, don’t survive. I could have loved Cary Grant. Port in, zone
             out. Cable guys don’t know what a packet is. I scream love and punk
-            rock at the sky. There are levels to this game. Blah...
+            rock at the sky. There are levels to this game. ...Blah...
           </h4>
         </div>
         <div
@@ -121,10 +122,11 @@ const HomePage = () => {
               sm={12}
               md={6}
               p={2}
-              // style={{ backgroundColor: "red" }}
+              style={{ justifyContent: "center" }}
             >
               {/* <AboutThisSite /> */}
               <div style={{ marginTop: 20 }}>
+                <LetsBuild />
                 <PostList posts={posts} dataLimit={6} pageLimit={4} title="" />
               </div>
             </Grid>

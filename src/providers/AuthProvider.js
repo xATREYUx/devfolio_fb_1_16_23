@@ -66,7 +66,7 @@ export const AuthProvider = (props) => {
     }
   };
 
-  const loginFunction = async (email, password) => {
+  const loginFunction = async ({ email, password }) => {
     try {
       let userCredential = await signInWithEmailAndPassword(
         myAuth,

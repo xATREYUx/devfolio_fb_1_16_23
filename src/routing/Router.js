@@ -15,14 +15,6 @@ import ScrollToTop from "../components/scrollToTop";
 
 window.history.scrollRestoration = "manual";
 const Router = () => {
-  // const { isLoading, loggedIn, getLoggedIn } = useContext(AuthContext);
-  // {
-  //   loggedIn && console.log("Router loggedIn: ", loggedIn);
-  // }
-  // useEffect(() => {
-
-  //   getLoggedIn();
-  // }, []);
   console.log("Routing...");
   return (
     <div

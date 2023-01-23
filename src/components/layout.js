@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
   // console.log("mixins", ...theme);
   return (
     <Box elevation={0} display="relative" margin="auto">
-      <Toolbar></Toolbar>
+      {/* <NavBar /> */}
       <Page>{children}</Page>;
     </Box>
   );

@@ -84,7 +84,7 @@ const RegisterForm = () => {
         style={{ ...theme.typography.h3, margin: 0 }}
         // className={classes.formTitle}
       >
-        Registerr
+        Register
       </h3>
       <TextField
         style={{ margin: ".5rem" }}

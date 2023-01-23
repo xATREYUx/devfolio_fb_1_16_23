@@ -63,3 +63,5 @@ export const loginUser = async (props) => {
     console.log(err);
   }
 };
+
+export const logoutUser = () => {};

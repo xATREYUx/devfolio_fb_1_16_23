@@ -20,11 +20,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Box } from "@mui/system";
 import { styled } from "@mui/system";
 
-const TopBar = styled(AppBar)`
-  maxHeight: "3rem",
-  justifyContent: "center",
-`;
-
 function HideOnScroll(props) {
   const { children } = props;
   const trigger = useScrollTrigger();
@@ -35,58 +30,77 @@ function HideOnScroll(props) {
   );
 }
 
+const TopBar = styled(Toolbar)({
+  display: "flex",
+  flexDirection: "row",
+  // paddingLeft: "10px",
+  // paddingRight: "10px",
+  backgroundColor: "#E85B25",
+  // justifyContent: "space-between",
+  // width: "100%",
+  // display: "",
+});
+
+const LeftIcons = styled("div")({
+  flex: 1,
+  // alignSelf: "flex-start",
+  // flexDirection: "row",
+  // alignItems: "center",
+  // backgroundColor: "green",
+});
+
+const RightIcons = styled("div")({
+  flex: 1,
+  display: "flex",
+  // backgroundColor: "blue",
+  justifyContent: "flex-end",
+  // display: "flex",
+  // flexDirection: "row",
+  // alignItems: "center",
+});
+
 const NavBar = () => {
-  const { logout, loggedIn } = useContext(AuthContext);
+  const { logout, loggedIn, profile } = useContext(AuthContext);
   const navigate = useNavigate();
 
   return (
     <HideOnScroll>
-      {/* <Box sx={{ flexGrow: 1 }}> */}
       <TopBar>
-        <Toolbar>
+        {/* <div>asdgf</div> */}
+        {/* <TopBar> */}
+        <LeftIcons>
           <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="menu"
-            // sx={{ mr: 2 }}
+            style={{ color: "white" }}
           >
             <MenuIcon />
           </IconButton>
-          {/* <Typography
-            sx={{ flexGrow: 1 }}
-            // className={classes.appTitle}
-            onClick={() => navigate("/home")}
+          <IconButton
+            size="small"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            style={{ color: "white" }}
+            onClick={() => navigate("/")}
           >
-            @noBrainer
-          </Typography> */}
-          <div>
-            {loggedIn && (
-              <Box>
-                <IconButton size="small" onClick={() => navigate("/user")}>
-                  <div className="nav-icon">
-                    <FontAwesomeIcon icon={faUserAstronaut} color="white" />
-                  </div>
-                </IconButton>
-                <IconButton size="small" onClick={logout}>
-                  <div className="nav-icon">
-                    <FontAwesomeIcon icon={faSignOutAlt} color="white" />
-                  </div>
-                </IconButton>
-              </Box>
-            )}
-            {!loggedIn && (
-              <>
-                <div className="nav-icon" onClick={() => navigate("/")}>
-                  {/* Sign In */}
-                  @MightyMattXP
-                </div>
-              </>
-            )}
-          </div>
-        </Toolbar>
+            @MightyMattXP
+          </IconButton>
+        </LeftIcons>
+        {profile && (
+          <RightIcons>
+            <IconButton size="small" onClick={() => navigate("/user")}>
+              <FontAwesomeIcon icon={faUserAstronaut} color="white" />
+            </IconButton>
+            <IconButton size="small" onClick={logout}>
+              <FontAwesomeIcon icon={faSignOutAlt} color="white" />
+            </IconButton>
+          </RightIcons>
+        )}
+        {/* </TopBar> */}
       </TopBar>
-      {/* </Box> */}
     </HideOnScroll>
   );
 };
