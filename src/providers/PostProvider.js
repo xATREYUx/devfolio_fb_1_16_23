@@ -18,12 +18,15 @@ import {
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 import { FirebaseContext } from "./FirebaseProvider";
+import { AuthContext } from "./AuthProvider";
 
 export const PostContext = createContext({});
 
 export const PostProvider = (props) => {
   const [posts, setPosts] = useState([]);
   const [usersPosts, setUsersPosts] = useState([]);
+  const { profile } = useContext(AuthContext);
+  console.log("postPage:", profile);
 
   const { myFS, myStorage } = useContext(FirebaseContext);
   const postsCollection = collection(myFS, "posts");
@@ -35,12 +38,15 @@ export const PostProvider = (props) => {
   const createPost = async (formData) => {
     console.log("---createPost_Initiated--- env: ", formData.values());
     console.log("process.env.NODE_ENV", process.env.NODE_ENV);
+    console.log("process.env.NODE_ENV", profile);
+
     //create doc ref
     const postDocRef = doc(postsCollection);
     try {
       //create data obj that will be sent to post collection
       let formDataObject = {};
       formDataObject["created"] = Timestamp.fromDate(new Date());
+      formDataObject["createdBy"] = profile.uid;
 
       //for each key in data sent from form
       for (let [key, value] of formData) {

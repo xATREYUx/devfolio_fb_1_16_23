@@ -8,9 +8,13 @@ export const theme = createTheme({
     h1: {
       fontFamily: "Bangers",
     },
+    h2: {
+      fontFamily: "Bangers",
+    },
     h3: {
       fontFamily: "Bangers",
       letterSpacing: 1.4,
+      ontSize: "1rem",
     },
     subtitle1: {
       fontFamily: "Cuprum",

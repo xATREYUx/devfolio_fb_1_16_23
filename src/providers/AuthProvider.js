@@ -75,6 +75,7 @@ export const AuthProvider = (props) => {
       );
 
       let user = userCredential.user;
+      console.log("loginFunction res: ", user);
       if (!user?.uid) {
         let msg = `No UID found after signIn!`;
         console.error(msg);
@@ -95,6 +96,7 @@ export const AuthProvider = (props) => {
   const logoutFunction = async () => {
     try {
       setUser(null); // shut down the listeners
+      setProfile(null);
       await signOut(myAuth);
       console.log("Signed Out");
       return true;
@@ -175,6 +177,11 @@ export const AuthProvider = (props) => {
   if (authLoading) {
     return <h1>Loading</h1>;
   }
+  //detect platform
+  const isMobile =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
 
   const theValues = {
     authErrorMessages,
@@ -184,6 +191,7 @@ export const AuthProvider = (props) => {
     login: loginFunction,
     logout: logoutFunction,
     register: registerFunction,
+    isMobile,
   };
 
   return (

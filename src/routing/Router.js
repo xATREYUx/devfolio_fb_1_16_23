@@ -19,6 +19,8 @@ const Router = () => {
   return (
     <div
       style={{
+        display: "flex",
+        flexDirection: "column",
         maxWidth: "1000px",
         overflowY: "hidden",
         position: "relative",

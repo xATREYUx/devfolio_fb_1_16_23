@@ -22,15 +22,16 @@ import { PostContext } from "../providers/PostProvider";
 import PostList from "../components/posts/postList";
 import ErrorBoundary from "../components/ErrorBoundary";
 import LetsBuild from "../components/letsBuild";
+import ReactEngineering from "../components/aboutThisSite/ReactEngineering";
 
 const HomePage = () => {
-  const { loggedIn } = useContext(AuthContext);
+  const { loggedIn, isMobile } = useContext(AuthContext);
   const { posts } = useContext(PostContext);
   const bubblesRef = useRef();
 
   const height = window.innerHeight;
 
-  console.log("HomePage loggedIn", loggedIn);
+  console.log("HomePage loggedIn", loggedIn + ", " + isMobile);
 
   useEffect(() => {
     const parallax = () => {
@@ -52,20 +53,18 @@ const HomePage = () => {
           style={{
             display: "flex",
             flexDirection: "column",
-            height: height - height * 0.115,
+            height: height - height * 0.2,
             alignItems: "center",
             justifyContent: "center",
             position: "relative",
-            minHeight: "600px",
+            minHeight: "500px",
           }}
         >
-          {/* <World /> */}
           <img
             src={World}
             style={{ height: "100vw", maxWidth: "350px" }}
             alt="world-pic"
           />
-          {/* <LetsBuild className={classes.letsBuild} /> */}
           <h4
             style={{
               position: "absolute",
@@ -89,7 +88,7 @@ const HomePage = () => {
             Rock for President. Birds & squirrels, home runs & touchdowns.
             Thrive, don’t survive. I could have loved Cary Grant. Port in, zone
             out. Cable guys don’t know what a packet is. I scream love and punk
-            rock at the sky. There are levels to this game. ...Blah...
+            rock at the sky. There are levels to this game.
           </h4>
         </div>
         <div
@@ -98,7 +97,7 @@ const HomePage = () => {
             backgroundRepeat: "no-repeat",
             backgroundSize: "contain",
             backgroundWidth: "100%",
-            paddingBottom: "66.64%",
+            paddingBottom: "30.64%",
           }}
         >
           <AnimationCoupleSitting
@@ -122,22 +121,38 @@ const HomePage = () => {
               sm={12}
               md={6}
               p={2}
-              style={{ justifyContent: "center" }}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                // backgroundColor: "red",
+                // justifyContent: "center",
+                // width: "100%",
+                // position: "relative",
+              }}
             >
               {/* <AboutThisSite /> */}
-              <div style={{ marginTop: 20 }}>
-                <LetsBuild />
-                <PostList posts={posts} dataLimit={6} pageLimit={4} title="" />
-              </div>
+              {/* <div
+                style={{
+                  marginTop: 20,
+                  backgroundColor: "red",
+                  width: "100%",
+                  // alignItems: "center",
+                }}
+              > */}
+              <LetsBuild />
+              {/* </div> */}
+              <PostList posts={posts} dataLimit={6} pageLimit={4} title="" />
             </Grid>
             <Grid
               item
               xs={12}
               sm={12}
               md={5}
-              align="right"
-              // style={{ backgroundColor: "green" }}
+              align={isMobile ? "center" : "right"}
+              style={{ marginTop: 40 }}
             >
+              <ReactEngineering />
               <FallingComponentsContainer />
               {/* <ContactUs /> */}
             </Grid>
@@ -146,11 +161,13 @@ const HomePage = () => {
             src={bubbleBlobs}
             alt="bubble-blob"
             style={{
-              zIndex: "-2",
+              zIndex: -2,
               position: "absolute",
               width: "100%",
-              height: "40vh",
-              bottom: "-1400px",
+              height: 500,
+              bottom: -200,
+              left: -150,
+              // backgroundColor: "red",
             }}
             ref={bubblesRef}
           />

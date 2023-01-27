@@ -5,41 +5,45 @@ import Box from "@mui/material/Box";
 // import { makeStyles } from "@mui/styles";
 // import { ClassSharp } from "@mui/icons-material";
 import { createTheme, useTheme } from "@mui/system";
+import { Paper, Typography } from "@mui/material";
 
 export default function ReactEngineering() {
   // const classes = useStyles();
   const theme = useTheme();
   return (
-    <Box
+    <Paper
       // className={classes.container}
       style={{
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
-        margin: "auto",
+        // alignItems: "center",
+        // margin: "auto",
+        width: "65%",
         // padding: 20,
         // justifyContent: "center",
         // marginBottom: "1rem",
         textAlign: "justify",
         // backgroundColor: "#E85B25",
         backgroundColor: "white",
-        width: "100%",
+        // width: "100%",
+        padding: 10,
       }}
     >
-      <h1
+      <Typography
         // className={classes.mainTitle}
         style={{
+          ...theme.typography.h3,
           color: "#E85B25",
           fontFamily: "Bangers",
           fontSize: "2rem",
-          letterSpacing: ".2rem",
+          // letterSpacing: ".2rem",
           // [theme.breakpoints.down("sm")]: {
           //   fontSize: "2rem",
           // },
         }}
       >
         React Engineering
-      </h1>
+      </Typography>
       <div
         // className={classes.text}
         style={{
@@ -47,10 +51,10 @@ export default function ReactEngineering() {
           color: "black",
           // maxWidth: "400px",
           // marginBottom: "1rem",
-          marginTop: 0,
-          marginRight: "1rem",
-          marginLeft: "1rem",
-          marginBottom: "1rem",
+          // marginTop: 0,
+          // marginRight: "1rem",
+          // marginLeft: "1rem",
+          // marginBottom: "1rem",
           // textJustify: "inter-word",
           // [theme.breakpoints.down("md")]: {
           //   // alignItems: "center",
@@ -64,7 +68,7 @@ export default function ReactEngineering() {
         of monetization, data charting, api calls, user authentication and
         authorization, database and context management, and more!
       </div>
-    </Box>
+    </Paper>
   );
 }
 // const useStyles = makeStyles((theme) => ({

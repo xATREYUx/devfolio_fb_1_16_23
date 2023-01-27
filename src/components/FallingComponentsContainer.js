@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useEffect, useRef } from "react";
 import { Paper, Typography } from "@mui/material";
+import { styled } from "@mui/system";
+
 import {
   AnimationFreeFall,
   AnimationLookDown,
@@ -9,9 +11,13 @@ import {
 import ReactEngineering from "./aboutThisSite/ReactEngineering";
 import { GameHighlights } from "./GameHighlights";
 import { TwitterFeed } from "./TwitterFeed";
+import { AuthContext } from "../providers/AuthProvider";
+import { theme } from "../theme";
 // import { makeStyles } from "@mui/styles";
 
 const FallingComponentContainer = () => {
+  const { isMobile } = useContext(AuthContext);
+
   // const classes = useStyles();
   // const freefall = useRef();
 
@@ -30,34 +36,56 @@ const FallingComponentContainer = () => {
   // }, [freefall]);
 
   const sideBarComponents = [
-    <AnimationFreeFall />,
-    <ReactEngineering />,
-    <AnimationLookDown />,
+    isMobile ? null : <AnimationFreeFall />,
+
+    isMobile ? null : <AnimationLookDown />,
     <TwitterFeed />,
     <GameHighlights />,
   ];
+
+  const SideBarContainer = styled(Paper)({
+    padding: 10,
+  });
   return (
     <div
       style={{
         // flex: 1,
         flexDirection: "column",
         width: "70%",
-        marginLeft: "40px",
+        marginLeft: isMobile ? 0 : "40px",
         marginTop: "40px",
         height: "20%",
         // backgroundColor: "#E85B25",
         elevation: 0,
       }}
     >
-      {sideBarComponents.map((component, i) => {
-        return (
-          <div key={i}>
-            {component}
-            <div style={{ marginBottom: 15 }}></div>
-          </div>
-        );
-      })}
+      <SideBarContainer>
+        <Typography
+          variant="h3"
+          // gutterBottom
+          align="center"
+          // className={classes.cardTitle}
+          style={{
+            ...theme.typography.h3,
+            color: "#57AAE9",
+            // position: "absolute",
+            fontSize: "2rem",
 
+            // justifyContent: "center",
+            // alignItems: "center",
+          }}
+        >
+          Tweets
+        </Typography>
+        {sideBarComponents.map((component, i) => {
+          return (
+            <div key={i}>
+              {component}
+              <div style={{ marginBottom: 15 }}></div>
+            </div>
+          );
+        })}
+      </SideBarContainer>
       {/* <AnimationManHanging /> */}
     </div>
   );

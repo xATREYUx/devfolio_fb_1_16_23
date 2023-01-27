@@ -45,6 +45,7 @@ export const AnimationLookDown = () => {
       style={{
         position: "relative",
         width: "100%",
+        marginTop: 50,
       }}
     >
       <img

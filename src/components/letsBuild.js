@@ -1,20 +1,23 @@
 import { useState, useEffect } from "react";
 import { styled } from "@mui/system";
+import { Typography } from "@mui/material";
+import { theme } from "../theme";
 
 const Component = styled("h1")({
   display: "flex",
-  margin: 20,
-  fontSize: 30,
-  alignSelf: "center",
+  // margin: 20,
+  // fontSize: 30,
+  // alignSelf: "center",
   justifyContent: "center",
-  fontFamily: "Cuprum",
+  alignItems: "center",
+  // fontFamily: "Cuprum",
   height: 40,
   color: "#FF6600",
-  border: "2px white solid",
+  // border: "2px white solid",
   borderRadius: 5,
-  padding: 3,
-  marginLeft: 50,
-  marginRight: 50,
+  // padding: 3,
+  // marginLeft: 50,
+  // marginRight: 50,
   backgroundColor: "white",
 });
 
@@ -24,16 +27,17 @@ const LetsBuild = ({ style }) => {
   const [flashCount, setFlashCount] = useState(0);
   const [flash, setFlash] = useState(false);
 
-  const text = "LET'S BUILD!";
+  const text = "Building...";
   useEffect(() => {
     const type = () => {
       if (textIndex < text.length) {
-        setTimeout(() => setSubtitle(subTitle + text.charAt(textIndex)), 90);
+        //typing
+        setTimeout(() => setSubtitle(subTitle + text.charAt(textIndex)), 100);
         setTextIndex(textIndex + 1);
       } else {
         setTimeout(() => {
           setFlashCount(flashCount + 1);
-          if (flashCount > 4) {
+          if (flashCount > 2) {
             setTextIndex(0);
             setSubtitle("");
             setFlashCount(0);
@@ -49,8 +53,24 @@ const LetsBuild = ({ style }) => {
   }, [textIndex, subTitle, flashCount, flash]);
 
   return (
-    <Component style={{ visibility: flash ? "hidden" : "visible" }}>
-      {subTitle}
+    <Component
+      style={{
+        visibility: flash ? "hidden" : "visible",
+        width: 200,
+        // justifySelf: "center",
+      }}
+    >
+      <Typography
+        variant="h3"
+        align="center"
+        style={{
+          ...theme.typography.h3,
+          color: "#FF6600",
+          fontSize: "1.5rem",
+        }}
+      >
+        {subTitle}
+      </Typography>
     </Component>
   );
 };

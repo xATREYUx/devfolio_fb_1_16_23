@@ -5,10 +5,8 @@ import { AuthContext } from "../providers/AuthProvider";
 
 import Slide from "@mui/material/Slide";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
-import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-// import { makeStyles } from "@mui/styles";
-import { Typography } from "@mui/material";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSignOutAlt,
@@ -17,8 +15,9 @@ import {
 
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Box } from "@mui/system";
 import { styled } from "@mui/system";
+import { Typography } from "@mui/material";
+import { theme } from "../theme";
 
 function HideOnScroll(props) {
   const { children } = props;
@@ -33,41 +32,33 @@ function HideOnScroll(props) {
 const TopBar = styled(Toolbar)({
   display: "flex",
   flexDirection: "row",
-  // paddingLeft: "10px",
-  // paddingRight: "10px",
-  backgroundColor: "#E85B25",
-  // justifyContent: "space-between",
-  // width: "100%",
-  // display: "",
+  backgroundColor: "#FF6600",
+  borderBottomRightRadius: 20,
+  borderBottomLeftRadius: 20,
+  height: 0,
 });
 
 const LeftIcons = styled("div")({
   flex: 1,
-  // alignSelf: "flex-start",
-  // flexDirection: "row",
-  // alignItems: "center",
-  // backgroundColor: "green",
 });
 
 const RightIcons = styled("div")({
   flex: 1,
   display: "flex",
-  // backgroundColor: "blue",
   justifyContent: "flex-end",
-  // display: "flex",
-  // flexDirection: "row",
-  // alignItems: "center",
 });
 
 const NavBar = () => {
-  const { logout, loggedIn, profile } = useContext(AuthContext);
+  const { logout, profile } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  const onLogout = () => {
+    navigate("/home");
+    logout();
+  };
   return (
     <HideOnScroll>
       <TopBar>
-        {/* <div>asdgf</div> */}
-        {/* <TopBar> */}
         <LeftIcons>
           <IconButton
             size="large"
@@ -86,7 +77,23 @@ const NavBar = () => {
             style={{ color: "white" }}
             onClick={() => navigate("/")}
           >
-            @MightyMattXP
+            <Typography
+              variant="h3"
+              // gutterBottom
+              align="center"
+              // className={classes.cardTitle}
+              style={{
+                ...theme.typography.subtitle1,
+                color: "white",
+                // position: "absolute",
+                fontSize: "1.5rem",
+
+                // justifyContent: "center",
+                // alignItems: "center",
+              }}
+            >
+              @mattattheworld_
+            </Typography>
           </IconButton>
         </LeftIcons>
         {profile && (
@@ -94,12 +101,11 @@ const NavBar = () => {
             <IconButton size="small" onClick={() => navigate("/user")}>
               <FontAwesomeIcon icon={faUserAstronaut} color="white" />
             </IconButton>
-            <IconButton size="small" onClick={logout}>
+            <IconButton size="small" onClick={onLogout}>
               <FontAwesomeIcon icon={faSignOutAlt} color="white" />
             </IconButton>
           </RightIcons>
         )}
-        {/* </TopBar> */}
       </TopBar>
     </HideOnScroll>
   );
