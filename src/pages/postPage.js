@@ -60,7 +60,6 @@ const PostPage = (props) => {
         spacing={2}
         xs={12}
         sm={12}
-        md={12}
       >
         <Grid item xs={12} sm={12} md={6} align="center">
           <Paper style={{ height: "300px" }}>
