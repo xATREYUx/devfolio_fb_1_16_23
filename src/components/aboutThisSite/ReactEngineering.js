@@ -16,7 +16,7 @@ export default function ReactEngineering() {
       style={{
         display: "flex",
         flexDirection: "column",
-        // alignItems: "center",
+        alignItems: "center",
         // margin: "auto",
         width: "65%",
         // padding: 20,

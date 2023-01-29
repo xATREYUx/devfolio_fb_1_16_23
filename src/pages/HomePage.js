@@ -161,11 +161,11 @@ const HomePage = () => {
             src={bubbleBlobs}
             alt="bubble-blob"
             style={{
-              zIndex: -2,
+              zIndex: 0,
               position: "absolute",
               width: "100%",
               height: 500,
-              bottom: -200,
+              bottom: -125,
               left: -150,
               // backgroundColor: "red",
             }}
