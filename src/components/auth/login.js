@@ -38,7 +38,7 @@ const LoginForm = () => {
   // const classes = useStyles();
 
   const onLogin = async (e) => {
-    console.log("Login Info: ", email + " " + password);
+    //console.log("Login Info: ", email + " " + password);
     e.preventDefault();
     try {
       const loginData = {
@@ -52,7 +52,7 @@ const LoginForm = () => {
       }
       navigate("/user");
     } catch (err) {
-      console.log("Error in login function", err);
+      //console.log("Error in login function", err);
     }
     // getLoggedIn();
   };

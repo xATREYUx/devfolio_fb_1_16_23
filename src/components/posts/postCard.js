@@ -16,11 +16,11 @@ import { ref } from "firebase/storage";
 const PostCard = ({ post }) => {
   // const classes = useStyles();
   const theme = useTheme();
-  console.log("PostListCard_Initiated: ", post);
+  //console.log("PostListCard_Initiated: ", post);
   const navigate = useNavigate();
   const { loggedIn } = useContext(AuthContext);
-  console.log("post_title_text_size: ", post.hiddenTitleFontSize);
-  console.log("theme_postCard: ", theme);
+  //console.log("post_title_text_size: ", post.hiddenTitleFontSize);
+  //console.log("theme_postCard: ", theme);
 
   return (
     <ErrorBoundary section="postCard">
@@ -38,7 +38,7 @@ const PostCard = ({ post }) => {
           border: "1px solid rgba(0, 0, 0, 0.05)",
         }}
         onClick={() => {
-          console.log("post clicked!!");
+          //console.log("post clicked!!");
           navigate(`/post/${post.id}`, { state: post });
         }}
       >

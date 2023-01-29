@@ -14,13 +14,13 @@ import { styled } from "@mui/system";
 const PostPage = (props) => {
   const { profile } = useContext(AuthContext);
   // const uid = loggedIn?.user?.uid;
-  // console.log("postpage loggedin", loggedIn);
+  // //console.log("postpage loggedin", loggedIn);
   // const navigate = useNavigate();
   const postDetails = useLocation().state;
   // const classes = {};
   const [editMode, setEditMode] = useState(false);
-  console.log("postDetail_profile", profile);
-  console.log("postDetails", postDetails);
+  //console.log("postDetail_profile", profile);
+  //console.log("postDetails", postDetails);
 
   const PageContainer = styled("div")({
     display: "flex",
@@ -79,7 +79,7 @@ const PostPage = (props) => {
             />
           </Paper>
         </Grid>
-        {/* {console.log("edit_button: ", profile.uid === postDetails.createdBy)} */}
+        {/* {//console.log("edit_button: ", profile.uid === postDetails.createdBy)} */}
         {profile && profile.uid === postDetails.createdBy ? (
           <Button
             color="success"

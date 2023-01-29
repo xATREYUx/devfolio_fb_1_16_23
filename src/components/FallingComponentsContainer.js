@@ -28,7 +28,7 @@ const FallingComponentContainer = () => {
   //       freefall.current.style.transform = `translateY(
   //     -${scrolledValue + "px"}
   //     )`;
-  //       console.log("scrolling...", scrolledValue);
+  //       //console.log("scrolling...", scrolledValue);
   //     }
   //   };
   //   window.addEventListener("scroll", parallax);

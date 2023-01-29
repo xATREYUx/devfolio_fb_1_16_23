@@ -48,10 +48,10 @@ const ImageUpload = (props) => {
   useEffect(() => {
     if (!file) {
       if (props.previewImage) {
-        console.log("Edit Mode");
+        //console.log("Edit Mode");
         setPreviewUrl(props.previewImage);
       } else {
-        console.log("file not loaded");
+        //console.log("file not loaded");
         return;
       }
     } else {
@@ -69,7 +69,7 @@ const ImageUpload = (props) => {
   // }, [props.resetImage]);
 
   const pickedHandler = (event) => {
-    console.log("pickedHandler", event.target);
+    //console.log("pickedHandler", event.target);
     let pickedFile = "";
     let fileIsValid = isValid;
     if (event.target.files && event.target.files.length === 1) {

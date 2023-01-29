@@ -44,7 +44,7 @@ const UserPage = () => {
     // effectFunction();
   }, []);
 
-  console.log("UserPage: ", profile);
+  //console.log("UserPage: ", profile);
   return (
     <div
     // className={classes.userPageBox}

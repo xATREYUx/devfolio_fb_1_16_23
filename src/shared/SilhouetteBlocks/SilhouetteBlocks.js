@@ -73,8 +73,8 @@ export const AnimationFreeFall = () => {
         freefall.current.style.transform = `translateY(
       ${scrolledValue + "px"} 
       )`;
-        // console.log("scrolling...", scrolledValue);
-        // console.log("start location", startlocation);
+        // //console.log("scrolling...", scrolledValue);
+        // //console.log("start location", startlocation);
       }
     };
     window.addEventListener("scroll", parallax);

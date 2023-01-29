@@ -10,12 +10,13 @@ import UserPage from "../pages/userPage";
 import AuthPage from "../pages/authPage";
 import PostPage from "../pages/postPage";
 import NavBar from "../components/navbar";
+import PortfolioPage from "../pages/PortfolioPage";
 
 import ScrollToTop from "../components/scrollToTop";
 
 window.history.scrollRestoration = "manual";
 const Router = () => {
-  console.log("Routing...");
+  //console.log("Routing...");
   return (
     <div
       style={{
@@ -41,6 +42,7 @@ const Router = () => {
             element={<PrivateRoute component={<UserPage />} />}
           />
           <Route path="/post/:id" element={<PostPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="*" element={<HomePage />} />
         </Routes>
       </BrowserRouter>

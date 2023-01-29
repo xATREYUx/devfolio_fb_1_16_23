@@ -7,7 +7,7 @@ import ErrorBoundary from "../ErrorBoundary";
 
 //defaultImage is related to edit post
 const ImageInput = ({ name, reset, defaultImage }) => {
-  console.log("---ImageInput---");
+  //console.log("---ImageInput---");
 
   const [selectedImage, setSelectedImage] = useState();
   const [defImage, setDefImage] = useState(defaultImage);
@@ -19,11 +19,11 @@ const ImageInput = ({ name, reset, defaultImage }) => {
 
   useEffect(() => {
     setSelectedImage();
-    console.log("---ImageInput useEffect---");
+    //console.log("---ImageInput useEffect---");
   }, [reset]);
 
   const pickImageHandler = async () => {
-    console.log("---pickImageHandler---");
+    //console.log("---pickImageHandler---");
 
     inputRef.current?.click();
   };
@@ -34,7 +34,7 @@ const ImageInput = ({ name, reset, defaultImage }) => {
     setDefImage();
     if (e.target.files && e.target.files.length > 0) {
       setSelectedImage(e.target.files[0]);
-      console.log("e.target.files[0]", e.target.files);
+      //console.log("e.target.files[0]", e.target.files);
     }
   };
 

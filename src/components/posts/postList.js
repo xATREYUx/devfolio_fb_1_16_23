@@ -90,7 +90,7 @@ const PostList = ({ posts, dataLimit, pageLimit, title }) => {
         </button>
         {/* show page numbers */}
         {getPaginationGroup().map((item, index) => (
-          // console.log("item and currentpage", item, currentPage),
+          // //console.log("item and currentpage", item, currentPage),
           <button
             key={index}
             onClick={changePage}

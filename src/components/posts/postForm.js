@@ -27,7 +27,7 @@ const PostForm = (props) => {
 
   useEffect(() => {
     adjustFontSize();
-    console.log("fontSize effect", fontSize);
+    //console.log("fontSize effect", fontSize);
   }, [postTitleInput]);
 
   const methods = useForm();
@@ -42,11 +42,11 @@ const PostForm = (props) => {
   // const resetForm = () => setResetComponent(!resetComponent);
 
   const submitPost = async (data) => {
-    console.log("send data", data);
-    console.log("send pickedCardImage", pickedCardImage);
+    //console.log("send data", data);
+    //console.log("send pickedCardImage", pickedCardImage);
     var formData = new FormData();
     const values = getValues();
-    console.log("values log", values.file1[0]);
+    //console.log("values log", values.file1[0]);
     try {
       const formDataObject = async () => {
         formData.append("title", values.title);
@@ -67,31 +67,31 @@ const PostForm = (props) => {
       };
       await formDataObject();
       await createPost(formData);
-      console.log("postForm formData");
+      //console.log("postForm formData");
       setActivateReset(!activateReset);
       reset();
     } catch (err) {
-      console.log("submitPost error", err);
+      //console.log("submitPost error", err);
     }
   };
 
   const editPost = async ({ data }) => {
-    console.log("editPost Initiated data", data);
+    //console.log("editPost Initiated data", data);
 
     try {
       const dataFunction = async () => {
-        console.log("editPost Initiated data", data);
+        //console.log("editPost Initiated data", data);
       };
       await dataFunction();
     } catch (err) {
-      console.log("editPost error", err);
+      //console.log("editPost error", err);
     }
   };
 
   const adjustFontSize = () => {
     const fontSize =
       postTitleInput.length > 15 ? 2 - postTitleInput.length * 0.02 : 2;
-    console.log("fontSize", fontSize);
+    //console.log("fontSize", fontSize);
     setFontSize(fontSize);
   };
 
@@ -129,7 +129,7 @@ const PostForm = (props) => {
               defaultValue={props.editPostData.title || ""}
               {...register("title")}
               onChange={(e) => {
-                console.log("event", e.target.value);
+                //console.log("event", e.target.value);
                 setPostTitleInput(e.target.value);
               }}
             />

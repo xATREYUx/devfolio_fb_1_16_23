@@ -25,7 +25,7 @@ export const AuthProvider = (props) => {
   const { myAuth, myFS } = useContext(FirebaseContext);
 
   const registerFunction = async ({ email, password }) => {
-    console.log("registerFunction", JSON.stringify(email));
+    //console.log("registerFunction", JSON.stringify(email));
     let userCredential;
     try {
       userCredential = await createUserWithEmailAndPassword(
@@ -34,7 +34,7 @@ export const AuthProvider = (props) => {
         password
       );
     } catch (ex) {
-      console.error(`registerFunction() failed with: ${ex.message}`);
+      //console.error(`registerFunction() failed with: ${ex.message}`);
       setAuthErrorMessages([
         ex.message,
         "Did you enable the Email Provider in Firebase Auth?",
@@ -43,10 +43,10 @@ export const AuthProvider = (props) => {
     }
 
     try {
-      console.log(
-        "registeraFunction setDoc initiated: ",
-        userCredential.user.uid
-      );
+      //console.log(
+      //   "registeraFunction setDoc initiated: ",
+      //   userCredential.user.uid
+      // );
       let user = userCredential.user;
       let userDocRef = doc(myFS, "users", user.uid);
       let userDocData = {
@@ -57,7 +57,7 @@ export const AuthProvider = (props) => {
       await setDoc(userDocRef, userDocData);
       return true;
     } catch (ex) {
-      console.error(`registerFunction() setDoc failed with: ${ex.message}`);
+      //console.error(`registerFunction() setDoc failed with: ${ex.message}`);
       setAuthErrorMessages([
         ex.message,
         "Did you enable the Firestore Database in your Firebase project?",
@@ -75,19 +75,19 @@ export const AuthProvider = (props) => {
       );
 
       let user = userCredential.user;
-      console.log("loginFunction res: ", user);
+      //console.log("loginFunction res: ", user);
       if (!user?.uid) {
         let msg = `No UID found after signIn!`;
-        console.error(msg);
+        //console.error(msg);
       }
       if (user) {
-        console.log(`Logged in as uid(${user.uid}) email(${user.email})`);
+        //console.log(`Logged in as uid(${user.uid}) email(${user.email})`);
       }
       setUser(user);
       return true;
     } catch (ex) {
       let msg = `Login failure for email(${email}: ${ex.message})`;
-      console.error(msg);
+      //console.error(msg);
       setAuthErrorMessages([ex.message]);
       return false;
     }
@@ -98,10 +98,10 @@ export const AuthProvider = (props) => {
       setUser(null); // shut down the listeners
       setProfile(null);
       await signOut(myAuth);
-      console.log("Signed Out");
+      // //console.log("Signed Out");
       return true;
     } catch (ex) {
-      console.error(ex);
+      // //console.error(ex);
       setAuthErrorMessages([ex.message]);
       return false;
     }
@@ -112,7 +112,7 @@ export const AuthProvider = (props) => {
     if (myAuth) {
       let unsubscribe = onAuthStateChanged(myAuth, (user) => {
         // if user is null, then we force them to login
-        console.log("onAuthStateChanged(): got user", user);
+        // //console.log("onAuthStateChanged(): got user", user);
         if (user) {
           setUser(user);
         }
@@ -134,7 +134,7 @@ export const AuthProvider = (props) => {
           docRef,
           (docSnap) => {
             let profileData = docSnap.data();
-            console.log("Got user profile:", profileData, docSnap);
+            // //console.log("Got user profile:", profileData, docSnap);
             if (!profileData) {
               setAuthErrorMessages([
                 `No profile doc found in Firestore at: ${docRef.path}`,
@@ -143,10 +143,10 @@ export const AuthProvider = (props) => {
             setProfile(profileData);
           },
           (err) => {
-            console.error(
-              `onSnapshot() callback failed with: ${err.message}`,
-              err
-            );
+            // //console.error(
+            //   `onSnapshot() callback failed with: ${err.message}`,
+            //   err
+            // );
             setAuthErrorMessages([
               err.message,
               "Have you initialized your Firestore database?",
@@ -154,9 +154,9 @@ export const AuthProvider = (props) => {
           }
         );
       } catch (ex) {
-        console.error(
-          `useEffect() calling onSnapshot() failed with: ${ex.message}`
-        );
+        // //console.error(
+        //   `useEffect() calling onSnapshot() failed with: ${ex.message}`
+        // );
         setAuthErrorMessages([ex.message]);
       }
     };

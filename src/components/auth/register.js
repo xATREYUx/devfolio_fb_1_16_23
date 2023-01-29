@@ -48,7 +48,7 @@ const RegisterForm = () => {
         password,
         passwordVerify,
       };
-      console.log("registerData", registerData);
+      //console.log("registerData", registerData);
       let success = await register(registerData);
       setRegistrationRunning(false);
       if (!success) {
@@ -57,7 +57,7 @@ const RegisterForm = () => {
         navigate("/user");
       }
     } catch (err) {
-      console.log("Error in createUser function: ", err);
+      //console.log("Error in createUser function: ", err);
     }
   };
 

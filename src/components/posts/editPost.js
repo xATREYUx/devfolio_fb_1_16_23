@@ -73,7 +73,7 @@ import { PostContext } from "../../providers/PostProvider";
 
 const EditPostPage = (props) => {
   const postDetails = useLocation().state;
-  console.log("postDetails", postDetails);
+  //console.log("postDetails", postDetails);
   const {
     title,
     hiddenTitleFontSize,
@@ -103,26 +103,26 @@ const EditPostPage = (props) => {
 
   useEffect(() => {
     adjustFontSize();
-    console.log("fontSize effect", fontSize);
+    //console.log("fontSize effect", fontSize);
   }, [postTitleInput]);
 
   const adjustFontSize = () => {
     const fontSize =
       postTitleInput.length > 15 ? 2 - postTitleInput.length * 0.02 : 2;
-    console.log(
-      "fontSize",
-      fontSize + " " + postTitleInput.length + " " + hiddenTitleFontSize
-    );
+    //console.log(
+    //   "fontSize",
+    //   fontSize + " " + postTitleInput.length + " " + hiddenTitleFontSize
+    // );
     setFontSize(fontSize);
   };
   const editPost = async ({ data }) => {
-    console.log("editPost Initiated data", data);
+    //console.log("editPost Initiated data", data);
     var formData = new FormData();
     const values = getValues();
     try {
       const dataFunction = async () => {
-        console.log("getValues", values.cardImage[0]);
-        console.log("getValues", values.postImage[0]);
+        //console.log("getValues", values.cardImage[0]);
+        //console.log("getValues", values.postImage[0]);
         let toDelete = [];
         {
           values.cardImage[0] && toDelete.push(postDetails.cardImage);
@@ -146,7 +146,7 @@ const EditPostPage = (props) => {
       setActivateReset(!activateReset);
       navigate("/user");
     } catch (err) {
-      console.log("editPost error", err);
+      //console.log("editPost error", err);
     }
   };
 
@@ -155,7 +155,7 @@ const EditPostPage = (props) => {
     navigate("/user");
   };
 
-  console.log("PostPage props", title);
+  //console.log("PostPage props", title);
   return (
     <FormProvider {...methods}>
       <Box
@@ -249,7 +249,7 @@ const EditPostPage = (props) => {
             defaultValue={title || ""}
             {...register("title")}
             onChange={(e) => {
-              console.log("event", e.target.value);
+              //console.log("event", e.target.value);
               setPostTitleInput(e.target.value);
             }}
           />

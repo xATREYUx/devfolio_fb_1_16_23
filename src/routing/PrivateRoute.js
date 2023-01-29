@@ -13,7 +13,7 @@ export const PrivateRoute = ({ component }) => {
 
 export const AuthRoute = ({ component }) => {
   const { profile } = useContext(AuthContext);
-  console.log("AuthRoute: ", profile);
+  // //console.log("AuthRoute: ", profile);
   const finalComponent = !profile ? <AuthPage /> : component;
   return finalComponent;
 };

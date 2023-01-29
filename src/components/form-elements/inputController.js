@@ -6,12 +6,12 @@ const FileInput = ({ name }) => {
   const { control } = useForm();
 
   const imageChange = (e) => {
-    console.log("imageChange onChange triggered");
-    console.log("e.target.files[0]", e.target.files[0]);
+    //console.log("imageChange onChange triggered");
+    //console.log("e.target.files[0]", e.target.files[0]);
 
     if (e.target.files && e.target.files.length > 0) {
       setSelectedImage(e.target.files[0]);
-      console.log("e.target.files[0]", e.target.files[0]);
+      //console.log("e.target.files[0]", e.target.files[0]);
     }
   };
 

@@ -7,11 +7,11 @@ import { getStorage, connectStorageEmulator } from "firebase/storage";
 import fb_config from "../util/fb_config.json";
 
 export const FirebaseContext = createContext({});
-console.log(fb_config);
+// //console.log(fb_config);
 const firebaseConfig = fb_config;
 
 export const FirebaseProvider = (props) => {
-  console.log("FirebaseProvider Fired...");
+  // //console.log("FirebaseProvider Fired...");
   const children = props.children;
 
   const [firebaseInitializing, setFirebaseInitializing] = useState(true);
@@ -24,7 +24,7 @@ export const FirebaseProvider = (props) => {
   const myStorage = getStorage(myApp);
 
   useEffect(() => {
-    console.log("FirebaseProvider Emulator Effect...");
+    // //console.log("FirebaseProvider Emulator Effect...");
 
     const shouldUseEmulator =
       process.env.NODE_ENV === "development" ? true : false;
@@ -37,7 +37,7 @@ export const FirebaseProvider = (props) => {
 
       if (FS_HOST && FS_PORT) {
         connectFirestoreEmulator(myFS, FS_HOST, FS_PORT);
-        console.log(`connectFirestoreEmulator(${FS_HOST}, ${FS_PORT})`);
+        // //console.log(`connectFirestoreEmulator(${FS_HOST}, ${FS_PORT})`);
         mapEmulators.FS_HOST = FS_HOST;
         mapEmulators.FS_PORT = FS_PORT;
       }
@@ -46,9 +46,9 @@ export const FirebaseProvider = (props) => {
       let AUTH_PORT = 9099; // or whatever you set the port to in firebase.json
       if (AUTH_HOST && AUTH_PORT) {
         let AUTH_URL = `http://${AUTH_HOST}:${AUTH_PORT}`;
-        console.log(
-          `connectAuthEmulator(${AUTH_URL}, {disableWarnings: true})`
-        );
+        // //console.log(
+        //   `connectAuthEmulator(${AUTH_URL}, {disableWarnings: true})`
+        // );
         //    warns you not to use any real credentials -- we don't need that noise :)
         connectAuthEmulator(myAuth, AUTH_URL, { disableWarnings: true });
 
@@ -60,7 +60,7 @@ export const FirebaseProvider = (props) => {
       let STORAGE_HOST = "localhost";
       let STORAGE_PORT = 5004; // or whatever you have it set to in firebase.json
       if (STORAGE_HOST && STORAGE_PORT) {
-        console.log(`connectStorageEmulator(${STORAGE_HOST}, ${STORAGE_PORT})`);
+        // //console.log(`connectStorageEmulator(${STORAGE_HOST}, ${STORAGE_PORT})`);
         connectStorageEmulator(myStorage, STORAGE_HOST, STORAGE_PORT);
 
         mapEmulators.STORAGE_HOST = STORAGE_HOST;
@@ -70,10 +70,10 @@ export const FirebaseProvider = (props) => {
       setUsingEmulators(true);
       setEmulatorsConfig(mapEmulators);
 
-      console.log(
-        "FIREBASE STARTUP: using Firebase emulator:",
-        JSON.stringify(mapEmulators, null, 2)
-      );
+      // //console.log(
+      //   "FIREBASE STARTUP: using Firebase emulator:",
+      //   JSON.stringify(mapEmulators, null, 2)
+      // );
     }
 
     setFirebaseInitializing(false);

@@ -16,14 +16,14 @@ const Page = styled("div")({
 });
 
 const Toolbar = styled("div")(({ theme }) => {
-  console.log("mixins", theme);
+  //console.log("mixins", theme);
   return {
     ...theme.mixins.toolbar,
   };
 });
 
 const Layout = ({ children }) => {
-  // console.log("mixins", ...theme);
+  // //console.log("mixins", ...theme);
   return (
     <Box elevation={0} display="relative" margin="auto">
       {/* <NavBar /> */}

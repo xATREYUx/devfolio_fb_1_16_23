@@ -26,7 +26,7 @@ export const PostProvider = (props) => {
   const [posts, setPosts] = useState([]);
   const [usersPosts, setUsersPosts] = useState([]);
   const { profile } = useContext(AuthContext);
-  console.log("postPage:", profile);
+  // //console.log("postPage:", profile);
 
   const { myFS, myStorage } = useContext(FirebaseContext);
   const postsCollection = collection(myFS, "posts");
@@ -36,9 +36,9 @@ export const PostProvider = (props) => {
   }, []);
 
   const createPost = async (formData) => {
-    console.log("---createPost_Initiated--- env: ", formData.values());
-    console.log("process.env.NODE_ENV", process.env.NODE_ENV);
-    console.log("process.env.NODE_ENV", profile);
+    // //console.log("---createPost_Initiated--- env: ", formData.values());
+    // //console.log("process.env.NODE_ENV", process.env.NODE_ENV);
+    // //console.log("process.env.NODE_ENV", profile);
 
     //create doc ref
     const postDocRef = doc(postsCollection);
@@ -56,7 +56,7 @@ export const PostProvider = (props) => {
           formData.get(key) instanceof File
         ) {
           //if there is a file do this
-          console.log("field is a file type", formData.get(key));
+          // //console.log("field is a file type", formData.get(key));
           //build filename
           let nano = nanoid();
           let fileName = formData.get(key).name;
@@ -68,36 +68,36 @@ export const PostProvider = (props) => {
           //upload files to storage
           const bucket = "postImages";
           const imageStorageRef = ref(myStorage, `${bucket}/${fileName}`);
-          console.log("imageStorageRef", imageStorageRef);
+          // //console.log("imageStorageRef", imageStorageRef);
           const snap = await uploadBytes(imageStorageRef, value);
           const url = await getDownloadURL(snap.ref);
-          console.log("getDownloadURL", url);
+          // //console.log("getDownloadURL", url);
           formDataObject[key] = url;
         } else {
           //if not a file
           formDataObject[key] = value;
-          // console.log("formDataObject", formDataObject);
+          // //console.log("formDataObject", formDataObject);
         }
       }
 
       //create post doc with formDataObject data
       await setDoc(postDocRef, formDataObject);
-      console.log("formDataObject_final", formDataObject);
+      // //console.log("formDataObject_final", formDataObject);
 
       // let posts = [];
       // const querySnapshot = await getDocs(collection(myFS, "posts"));
       // querySnapshot.forEach((doc) => {
       //   // doc.data() is never undefined for query doc snapshots
-      //   console.log(doc.id, " => ", doc.data());
+      //   //console.log(doc.id, " => ", doc.data());
       //   posts.push(doc.data());
       // });
     } catch (err) {
-      console.log("!!create_res_err!!", err);
+      // //console.log("!!create_res_err!!", err);
     }
   };
 
   const getAllPosts = async () => {
-    console.log("Getting all posts...");
+    // //console.log("Getting all posts...");
     try {
       let posts = [];
       const querySnapshot = await getDocs(
@@ -105,7 +105,7 @@ export const PostProvider = (props) => {
       );
       querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
+        // //console.log(doc.id, " => ", doc.data());
         // const docData = doc.data();
         let data = doc.data();
         // let data = {};
@@ -118,13 +118,13 @@ export const PostProvider = (props) => {
         data.id = doc.id;
         posts.push(data);
       });
-      console.log("all_posts: ", posts);
+      // //console.log("all_posts: ", posts);
       setPosts(posts);
     } catch (err) {}
   };
 
   // const updatePost = async (data, input, index) => {
-  //   console.log("---updatePost Initiated---");
+  //   //console.log("---updatePost Initiated---");
   //   const editPostId = data.id;
   //   var formData = new FormData();
   //   const dataFunction = async () => {
@@ -147,7 +147,7 @@ export const PostProvider = (props) => {
   // };
   const updatePost = async ({ formData, id }) => {
     try {
-      console.log("editPost Action Initiated", formData);
+      // //console.log("editPost Action Initiated", formData);
       const config = {
         headers: {
           "content-type": "multipart/form-data",
@@ -159,22 +159,22 @@ export const PostProvider = (props) => {
         formData,
         config
       );
-      console.log("editPost log", editPostRes.data);
+      // //console.log("editPost log", editPostRes.data);
       // const data = editPostRes.data;
       // const newState = usersPosts.filter((item) => item.id === id);
       // setUsersPosts((prevState) => [...newState, data]);
       // getUsersPosts();
     } catch (err) {
-      console.log("update error", err);
+      // //console.log("update error", err);
     }
   };
 
   const deletePost = async ({ id }) => {
-    console.log("destroy post: ", id);
+    // //console.log("destroy post: ", id);
     const delPostRes = await axios.delete(`${domain}/posts/${id}`, {
       headers: { "x-access-token": localStorage.getItem("token") },
     });
-    console.log("delPostRes", delPostRes);
+    // //console.log("delPostRes", delPostRes);
     // getUsersPosts();
   };
 

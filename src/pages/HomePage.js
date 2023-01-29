@@ -1,37 +1,37 @@
 import React, { useEffect, useContext, useRef } from "react";
+import { useNavigate } from "react-router";
 
-import { Grid, Typography } from "@mui/material";
+import { AuthContext } from "../providers/AuthProvider";
+import { PostContext } from "../providers/PostProvider";
+
+import { Button, Grid, Typography } from "@mui/material";
+import { Box } from "@mui/system";
+
 import BlobTop from "../shared/images/blobTop.svg";
 import World from "../shared/images/dev_folio_logo_globe.svg";
-// import blobTop from "../shared/images/blobTop.svg";
 import blobTop from "../shared/images/drip_background2.svg";
-
 import bubbleBlobs from "../shared/images/bubbleBlobs.svg";
+import PostList from "../components/posts/postList";
+import ErrorBoundary from "../components/ErrorBoundary";
+import LetsBuild from "../components/letsBuild";
+import ReactEngineering from "../components/aboutThisSite/ReactEngineering";
+import FallingComponentsContainer from "../components/FallingComponentsContainer";
 import {
   AnimationLookDown,
   AnimationFreeFall,
   AnimationCoupleSitting,
 } from "../shared/SilhouetteBlocks/SilhouetteBlocks";
-// import { AnimationCoupleSitting } from "../shared/SilhouetteBlocks/SilhouetteBlocks";
-import { Box } from "@mui/system";
-import { AuthContext } from "../providers/AuthProvider";
-// import PostList from "../components/posts/postList";
-// import PostContext from "../components/posts/postContext";
-import FallingComponentsContainer from "../components/FallingComponentsContainer";
-import { PostContext } from "../providers/PostProvider";
-import PostList from "../components/posts/postList";
-import ErrorBoundary from "../components/ErrorBoundary";
-import LetsBuild from "../components/letsBuild";
-import ReactEngineering from "../components/aboutThisSite/ReactEngineering";
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
   const { loggedIn, isMobile } = useContext(AuthContext);
   const { posts } = useContext(PostContext);
   const bubblesRef = useRef();
 
   const height = window.innerHeight;
 
-  console.log("HomePage loggedIn", loggedIn + ", " + isMobile);
+  //console.log("HomePage loggedIn", loggedIn + ", " + isMobile);
 
   useEffect(() => {
     const parallax = () => {
@@ -141,6 +141,7 @@ const HomePage = () => {
                 }}
               > */}
               <LetsBuild />
+              <Button onClick={() => navigate(`/comps`)}>component page</Button>
               {/* </div> */}
               <PostList posts={posts} dataLimit={6} pageLimit={4} title="" />
             </Grid>

@@ -23,7 +23,7 @@ import { styled } from "@mui/system";
 //   },
 // }));
 const AuthPageContainer = styled(Paper)(({ theme }) => {
-  console.log("mixins", theme);
+  //console.log("mixins", theme);
   return {
     textAlign: "center",
     margin: "4rem",

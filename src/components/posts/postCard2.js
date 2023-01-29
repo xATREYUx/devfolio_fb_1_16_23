@@ -16,11 +16,11 @@ import { ref } from "firebase/storage";
 const PostCard = ({ post }) => {
   // const classes = useStyles();
   const theme = useTheme();
-  console.log("PostListCard_Initiated: ", post);
+  //console.log("PostListCard_Initiated: ", post);
   const navigate = useNavigate();
   const { loggedIn } = useContext(AuthContext);
-  console.log("post_file1: ", post.file1);
-  console.log("theme_postCard: ", theme);
+  //console.log("post_file1: ", post.file1);
+  //console.log("theme_postCard: ", theme);
 
   return (
     <ErrorBoundary section="postCard">
@@ -40,7 +40,7 @@ const PostCard = ({ post }) => {
           border: "4px solid white",
         }}
         onClick={() => {
-          console.log("post clicked!!");
+          //console.log("post clicked!!");
           navigate(`/post/${post.id}`, { state: post });
         }}
       >

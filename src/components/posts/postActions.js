@@ -6,7 +6,7 @@ const getPosts = () => {
 };
 
 const createPost = async (formData) => {
-  console.log("---createPost Initiated--- env: ", process.env.NODE_ENV);
+  //console.log("---createPost Initiated--- env: ", process.env.NODE_ENV);
 
   //Send data to firebase
   const config = {
@@ -16,8 +16,8 @@ const createPost = async (formData) => {
   };
   await axios
     .post(`${domain}/posts`, formData, config)
-    .then((res) => console.log("axios res", res))
-    .catch((err) => console.log("axios err", err));
+    .then((res) => //console.log("axios res", res))
+    .catch((err) => //console.log("axios err", err));
 
   //get updated list of post from friebase for the postsList
 };

@@ -3,10 +3,10 @@ import { defaults } from "js-cookie";
 import ReCaptchaV2 from "react-google-recaptcha";
 
 const Captcha = ({ setCaptcha, recaptchaRef }) => {
-  console.log("Captcha: ", process.env.REACT_APP_SITE_KEY_DEVELOPMENT);
+  //console.log("Captcha: ", process.env.REACT_APP_SITE_KEY_DEVELOPMENT);
   const handleToken = (token) => {
     setCaptcha((captcha) => {
-      console.log("captcha token: ", token);
+      //console.log("captcha token: ", token);
       return { ...captcha, token };
     });
   };

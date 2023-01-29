@@ -1,0 +1,78 @@
+[debug] [2023-01-29T20:31:28.918Z] ----------------------------------------------------------------------
+[debug] [2023-01-29T20:31:28.920Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2023-01-29T20:31:28.920Z] CLI Version:   11.17.0
+[debug] [2023-01-29T20:31:28.920Z] Platform:      win32
+[debug] [2023-01-29T20:31:28.920Z] Node Version:  v16.18.1
+[debug] [2023-01-29T20:31:28.921Z] Time:          Sun Jan 29 2023 15:31:28 GMT-0500 (Eastern Standard Time)
+[debug] [2023-01-29T20:31:28.922Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-01-29T20:31:29.001Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-01-29T20:31:29.001Z] > authorizing via signed-in user (mwmailing@gmail.com)
+[debug] [2023-01-29T20:31:29.113Z] java version "19.0.1" 2022-10-18
+Java(TM) SE Runtime Environment (build 19.0.1+10-21)
+
+[debug] [2023-01-29T20:31:29.114Z] Java HotSpot(TM) 64-Bit Server VM (build 19.0.1+10-21, mixed mode, sharing)
+
+[debug] [2023-01-29T20:31:29.137Z] Parsed Java major version: 19
+[info] i  emulators: Starting emulators: auth, firestore, hosting, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, firestore, hosting, storage"}}
+[debug] [2023-01-29T20:31:29.158Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-01-29T20:31:29.158Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-01-29T20:31:29.158Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-01-29T20:31:29.158Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-01-29T20:31:29.159Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-01-29T20:31:29.159Z] [storage] Storage Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-01-29T20:31:29.159Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":5002}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}],"storage":[{"address":"127.0.0.1","family":"IPv4","port":5004}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2023-01-29T20:31:29.164Z] [hub] writing locator at C:\Users\mwmai\AppData\Local\Temp\hub-folio-9-26-21.json
+[debug] [2023-01-29T20:31:29.174Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-01-29T20:31:29.174Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2023-01-29T20:31:29.174Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\mwmai\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.15.1.jar","--host","127.0.0.1","--port",5002,"--websocket_port",9150,"--project_id","folio-9-26-21","--rules","C:\\Users\\mwmai\\Desktop\\web_dev\\devfolio\\folio-12-12-22_fb\\firestore.rules","--single_project_mode",true],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\mwmai\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.15.1.jar\",\"--host\",\"127.0.0.1\",\"--port\",5002,\"--websocket_port\",9150,\"--project_id\",\"folio-9-26-21\",\"--rules\",\"C:\\\\Users\\\\mwmai\\\\Desktop\\\\web_dev\\\\devfolio\\\\folio-12-12-22_fb\\\\firestore.rules\",\"--single_project_mode\",true],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[info] +  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
+[debug] [2023-01-29T20:31:38.371Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"storage"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-01-29T20:31:39.621Z] Temp file directory for storage emulator: C:\Users\mwmai\AppData\Local\Temp/firebase/storage/blobs {"metadata":{"emulator":{"name":"storage"},"message":"Temp file directory for storage emulator: C:\\Users\\mwmai\\AppData\\Local\\Temp/firebase/storage/blobs"}}
+[debug] [2023-01-29T20:31:39.631Z] > refreshing access token with scopes: []
+[debug] [2023-01-29T20:31:39.633Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-01-29T20:31:39.634Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-01-29T20:31:39.867Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-01-29T20:31:39.867Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-01-29T20:31:39.888Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/folio-9-26-21/sites 
+[debug] [2023-01-29T20:31:40.370Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/folio-9-26-21/sites 200
+[debug] [2023-01-29T20:31:40.370Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/folio-9-26-21/sites {"sites":[{"name":"projects/folio-9-26-21/sites/devfolio-front","defaultUrl":"https://devfolio-front.web.app","type":"USER_SITE"},{"name":"projects/folio-9-26-21/sites/folio-9-26-21","defaultUrl":"https://folio-9-26-21.web.app","type":"DEFAULT_SITE"},{"name":"projects/folio-9-26-21/sites/mightymattxp","defaultUrl":"https://mightymattxp.web.app","appId":"1:330015023646:web:d48adb763dfb3f4abd040f","type":"USER_SITE"}]}
+[debug] [2023-01-29T20:31:40.370Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/folio-9-26-21/webApps/-/config [none]
+[debug] [2023-01-29T20:31:40.818Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/folio-9-26-21/webApps/-/config 200
+[debug] [2023-01-29T20:31:40.818Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/folio-9-26-21/webApps/-/config {"projectId":"folio-9-26-21","storageBucket":"folio-9-26-21.appspot.com","locationId":"us-east1","apiKey":"AIzaSyD-Zt55ONZkv2-VQSkNWOIa47QEEZnY2qo","authDomain":"folio-9-26-21.firebaseapp.com","messagingSenderId":"330015023646"}
+[debug] [2023-01-29T20:31:40.828Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/folio-9-26-21 [none]
+[debug] [2023-01-29T20:31:41.126Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/folio-9-26-21 200
+[debug] [2023-01-29T20:31:41.126Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/folio-9-26-21 {"projectId":"folio-9-26-21","projectNumber":"330015023646","displayName":"folio-9-26-21","name":"projects/folio-9-26-21","resources":{"hostingSite":"folio-9-26-21","storageBucket":"folio-9-26-21.appspot.com","locationId":"us-east1"},"state":"ACTIVE","etag":"1_81f58360-894c-4dd5-b402-86c25a7144ca"}
+[info] i  hosting[mightymattxp]: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] +  hosting[mightymattxp]: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5000\u001b[22m\u001b[24m"}}
+[debug] [2023-01-29T20:31:41.149Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-01-29T20:31:41.150Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-01-29T20:31:41.150Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\mwmai\\.cache\\firebase\\emulators\\ui-v1.11.1\\server\\server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\mwmai\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.1\\\\server\\\\server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-01-29T20:31:41.363Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2023-01-29T20:31:41.364Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:5002 │ http://127.0.0.1:4000/firestore │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Hosting        │ 127.0.0.1:5000 │ n/a                             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Storage        │ 127.0.0.1:5004 │ http://127.0.0.1:4000/storage   │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500, 9150
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
