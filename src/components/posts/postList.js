@@ -73,7 +73,7 @@ const PostList = ({ posts, dataLimit, pageLimit, title }) => {
             align="center"
             xs={12}
             md={6}
-            // style={{ alignItems: "center" }}
+            // style={{ minHeight: 500 }}
             // className={classes.gridItem}
           >
             <PostCard post={post} />

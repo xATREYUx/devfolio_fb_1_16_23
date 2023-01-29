@@ -29,7 +29,8 @@ const PostCard = ({ post }) => {
         // className={classes.cardContainer}
         style={{
           display: "flex",
-          maxWidth: "250px",
+          // maxWidth: "350px",
+          minHeight: "150px",
           //   height: "250px",
 
           // [theme.breakpoints.down("sm")]: {
@@ -47,10 +48,9 @@ const PostCard = ({ post }) => {
           <CardContent
             // className={classes.cardContent}
             style={{
+              flex: 1,
               //   display: "flex",
-              //   flexDirection: "column",
-              height: "30%",
-              // justifyContent: "center",
+              // height: "30%",
               position: "absolute",
               padding: "0px !important",
               justifyContent: "start",
