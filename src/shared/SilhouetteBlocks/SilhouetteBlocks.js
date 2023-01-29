@@ -102,7 +102,7 @@ export const AnimationFreeFall = () => {
           height: 33,
           position: "absolute",
           left: 300,
-          top: 275,
+          top: 100,
         }}
       />
     </div>
