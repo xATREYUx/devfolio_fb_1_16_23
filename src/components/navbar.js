@@ -33,8 +33,8 @@ const TopBar = styled(Toolbar)({
   display: "flex",
   flexDirection: "row",
   backgroundColor: "#FF6600",
-  borderBottomRightRadius: 20,
-  borderBottomLeftRadius: 20,
+  // borderBottomRightRadius: 20,
+  // borderBottomLeftRadius: 20,
   height: 0,
 });
 

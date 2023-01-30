@@ -16,11 +16,8 @@ import ErrorBoundary from "../components/ErrorBoundary";
 import LetsBuild from "../components/letsBuild";
 import ReactEngineering from "../components/aboutThisSite/ReactEngineering";
 import FallingComponentsContainer from "../components/FallingComponentsContainer";
-import {
-  AnimationLookDown,
-  AnimationFreeFall,
-  AnimationCoupleSitting,
-} from "../shared/SilhouetteBlocks/SilhouetteBlocks";
+import { AnimationCoupleSitting } from "../shared/SilhouetteBlocks/SilhouetteBlocks";
+import { PageContainer } from "../shared/containers";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -48,29 +45,33 @@ const HomePage = () => {
 
   return (
     <ErrorBoundary section="HomePage_error">
-      <Box>
+      <PageContainer>
         <div
           style={{
+            minHeight: "650px",
             display: "flex",
-            flexDirection: "column",
-            height: height - height * 0.2,
-            alignItems: "center",
-            justifyContent: "center",
             position: "relative",
-            minHeight: "500px",
+            width: "100%",
+            height: "100%",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           <img
             src={World}
-            style={{ height: "100vw", maxWidth: "350px" }}
+            style={{
+              maxWidth: "350px",
+              zIndex: 1,
+              position: "absolute",
+            }}
             alt="world-pic"
           />
           <h4
             style={{
               position: "absolute",
-              zIndex: -1,
-              color: "gray",
-              opacity: 0.15,
+              zIndex: 0,
+              color: "#FF6600",
+              opacity: 0.3,
               fontSize: "2.1rem",
               // justifyContent: "normal",
               textAlign: "justify",
@@ -103,17 +104,7 @@ const HomePage = () => {
           <AnimationCoupleSitting
             style={{ height: 60, top: -30, position: "absolute" }}
           />
-          {/* <img
-          src={CoupleSitting}
-          alt="coupleSitting"
-          style={{
-            height: "4rem",
-            left: "35%",
-            top: "-35px",
-            // display: "flex",
-            position: "relative",
-          }}
-        /> */}
+
           <Grid container justifyContent="center" width="100%" marginTop={0}>
             <Grid
               item
@@ -125,23 +116,12 @@ const HomePage = () => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                // backgroundColor: "red",
-                // justifyContent: "center",
-                // width: "100%",
-                // position: "relative",
               }}
             >
-              {/* <AboutThisSite /> */}
-              {/* <div
-                style={{
-                  marginTop: 20,
-                  backgroundColor: "red",
-                  width: "100%",
-                  // alignItems: "center",
-                }}
-              > */}
               <LetsBuild />
-              <Button onClick={() => navigate(`/comps`)}>component page</Button>
+              {/* <Button onClick={() => navigate(`/portfolio`)}>
+                component page
+              </Button> */}
               {/* </div> */}
               <PostList posts={posts} dataLimit={6} pageLimit={4} title="" />
             </Grid>
@@ -162,7 +142,7 @@ const HomePage = () => {
             src={bubbleBlobs}
             alt="bubble-blob"
             style={{
-              zIndex: 0,
+              zIndex: -1,
               position: "absolute",
               width: "100%",
               height: 500,
@@ -173,7 +153,7 @@ const HomePage = () => {
             ref={bubblesRef}
           />
         </div>
-      </Box>
+      </PageContainer>
     </ErrorBoundary>
   );
 };

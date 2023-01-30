@@ -4,48 +4,15 @@ import personDown from "../images/lookdown.svg";
 import falling from "../images/falling.svg";
 import coupleSitting from "../images/couple_sitting.svg";
 import ManHanging from "../images/hangingman.png";
-// import Crusader from "../images/batman.svg";
 import BubbleBlobs from "../images/bubbleBlobs.svg";
 
-// import { makeStyles } from "@mui/styles";
-
-// const useStyles = makeStyles(() => ({
-// animationLookdownContainer: {
-//   position: "relative",
-//   width: "100%",
-// },
-// personDown: {
-//   position: "absolute",
-//   top: "-48px",
-//   left: "-15px",
-//   height: "50px",
-// },
-// animationFreeFallContainer: {
-//   // backgroundColor: "red",
-//   position: "relative",
-//   width: "100%",
-//   zindex: "2",
-//   // height: "10px",
-//   top: "160px",
-// },
-// personFalling: {
-//   position: "absolute",
-//   height: "30px",
-//   // transform: "scaleX(-1)",
-//   left: "-120px",
-//   // top: "0px",
-// },
-// }));
-
 export const AnimationLookDown = () => {
-  // const classes = useStyles();
-
   return (
     <div
       style={{
         position: "relative",
         width: "100%",
-        marginTop: 50,
+        // backgroundColor: "green",
       }}
     >
       <img
@@ -53,9 +20,9 @@ export const AnimationLookDown = () => {
         alt="person-down"
         style={{
           position: "absolute",
-          top: "-48px",
-          left: "-15px",
-          height: "50px",
+          // backgroundColor: "red",
+          height: "40px",
+          left: 120,
         }}
       />
     </div>

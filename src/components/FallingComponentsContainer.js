@@ -6,7 +6,6 @@ import { styled } from "@mui/system";
 import {
   AnimationFreeFall,
   AnimationLookDown,
-  AnimationManHanging,
 } from "../shared/SilhouetteBlocks/SilhouetteBlocks";
 import ReactEngineering from "./aboutThisSite/ReactEngineering";
 import { GameHighlights } from "./GameHighlights";
@@ -37,65 +36,48 @@ const FallingComponentContainer = () => {
 
   const sideBarComponents = [
     isMobile ? null : <AnimationFreeFall />,
-
-    isMobile ? null : <AnimationLookDown />,
-    <TwitterFeed />,
+    // <TwitterFeed />,
     <GameHighlights />,
   ];
 
   const SideBarContainer = styled(Paper)({
     padding: 10,
   });
+
   return (
     <div
       style={{
-        // flex: 1,
+        display: "flex",
+        position: "relative",
+        width: "100%",
         flexDirection: "column",
-        width: "70%",
-        marginLeft: isMobile ? 0 : "40px",
-        marginTop: "40px",
-        height: "20%",
-        // backgroundColor: "#E85B25",
-        elevation: 0,
+        alignItems: "flex-end",
       }}
     >
-      <SideBarContainer>
-        <Typography
-          variant="h3"
-          // gutterBottom
-          align="center"
-          // className={classes.cardTitle}
-          style={{
-            ...theme.typography.h3,
-            color: "#57AAE9",
-            // position: "absolute",
-            fontSize: "2rem",
-
-            // justifyContent: "center",
-            // alignItems: "center",
-          }}
-        >
-          Tweets
-        </Typography>
-        {sideBarComponents.map((component, i) => {
-          return (
-            <div key={i}>
-              {component}
-              <div style={{ marginBottom: 15 }}></div>
-            </div>
-          );
-        })}
-      </SideBarContainer>
-      {/* <AnimationManHanging /> */}
+      <AnimationLookDown />
+      <Paper
+        style={{
+          // flexDirection: "column",
+          width: "75%",
+          marginLeft: isMobile ? 0 : "40px",
+          marginTop: "40px",
+          // height: "20%",
+          // elevation: 0,
+        }}
+      >
+        <SideBarContainer>
+          {sideBarComponents.map((component, i) => {
+            return (
+              <div key={i}>
+                {component}
+                <div style={{ marginBottom: 15 }}></div>
+              </div>
+            );
+          })}
+        </SideBarContainer>
+      </Paper>
     </div>
   );
 };
-// const useStyles = makeStyles((theme) => ({
-//   aboutThisSiteTwoContainer: {
-//     width: "70%",
-//     marginLeft: "40px",
-//     marginTop: "40px",
-//     backgroundColor: "#E85B25",
-//   },
-// }));
+
 export default FallingComponentContainer;

@@ -49,6 +49,7 @@ const PostCard = ({ post }) => {
             // className={classes.cardContent}
             style={{
               flex: 1,
+
               //   display: "flex",
               // height: "30%",
               position: "absolute",

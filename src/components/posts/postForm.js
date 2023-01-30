@@ -1,33 +1,20 @@
 import { useState, useContext, useEffect } from "react";
 import { PostContext } from "../../providers/PostProvider";
-import {
-  appendErrors,
-  FormProvider,
-  useForm,
-  Controller,
-} from "react-hook-form";
-import { Button } from "@mui/material";
+import { appendErrors, FormProvider, useForm } from "react-hook-form";
+import { Button, FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import { Grid, TextField } from "@mui/material";
 import { Box } from "@mui/system";
 import ImageInput from "./imageInput";
 
 const PostForm = (props) => {
-  // const classes = useStyles();
-
   const { createPost } = useContext(PostContext);
-
   const [editMode, setEditMode] = useState("Create");
-  const [pickedCardImage, setPickedCardImage] = useState();
-  const [pickedCardImageOne, setPickedCardImageOne] = useState();
-  const [pickedCardImageTwo, setPickedCardImageTwo] = useState();
   const [activateReset, setActivateReset] = useState(false);
-  const [editPostId, setEditPostId] = useState();
   const [postTitleInput, setPostTitleInput] = useState("");
   const [fontSize, setFontSize] = useState(2);
 
   useEffect(() => {
     adjustFontSize();
-    //console.log("fontSize effect", fontSize);
   }, [postTitleInput]);
 
   const methods = useForm();
@@ -39,59 +26,38 @@ const PostForm = (props) => {
     formState: { errors },
     useFormContext,
   } = methods;
-  // const resetForm = () => setResetComponent(!resetComponent);
 
   const submitPost = async (data) => {
-    //console.log("send data", data);
-    //console.log("send pickedCardImage", pickedCardImage);
     var formData = new FormData();
     const values = getValues();
-    //console.log("values log", values.file1[0]);
+    console.log("values log", values);
     try {
       const formDataObject = async () => {
         formData.append("title", values.title);
         formData.append("caption", values.caption);
         formData.append("content", values.content);
         formData.append("hiddenTitleFontSize", fontSize);
-        // {
-        //   values.cardImage[0] &&
-        //     formData.append("cardImage", values.cardImage[0]);
-        // }
-        // {
-        //   values.postImage[0] &&
-        //     formData.append("postImage", values.postImage[0]);
-        // }
+        formData.append("postType", values.type);
         values.file1[0] && formData.append("file1", values.file1[0]);
-
         values.file2[0] && formData.append("file2", values.file2[0]);
       };
       await formDataObject();
       await createPost(formData);
-      //console.log("postForm formData");
       setActivateReset(!activateReset);
       reset();
-    } catch (err) {
-      //console.log("submitPost error", err);
-    }
+    } catch (err) {}
   };
 
   const editPost = async ({ data }) => {
-    //console.log("editPost Initiated data", data);
-
     try {
-      const dataFunction = async () => {
-        //console.log("editPost Initiated data", data);
-      };
+      const dataFunction = async () => {};
       await dataFunction();
-    } catch (err) {
-      //console.log("editPost error", err);
-    }
+    } catch (err) {}
   };
 
   const adjustFontSize = () => {
     const fontSize =
       postTitleInput.length > 15 ? 2 - postTitleInput.length * 0.02 : 2;
-    //console.log("fontSize", fontSize);
     setFontSize(fontSize);
   };
 
@@ -99,12 +65,10 @@ const PostForm = (props) => {
     <FormProvider {...methods}>
       <Box
         style={{ margin: "1rem" }}
-        // className={classes.formContainer}
         component="form"
         noValidate
         autoComplete="off"
         onSubmit={handleSubmit(submitPost)}
-        // onSubmit={handleSubmit(editMode === "Edit" ? editPost : submitPost)}
       >
         <h2>{editMode} Post</h2>
         <Grid container justifyContent="center">
@@ -160,6 +124,24 @@ const PostForm = (props) => {
               defaultValue={props.editPostData.content || ""}
               {...register("content")}
             />
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="Article"
+              name="radio-buttons-group"
+            >
+              <FormControlLabel
+                value="article"
+                control={<Radio />}
+                label="Article"
+                {...register("type")}
+              />
+              <FormControlLabel
+                value="component"
+                control={<Radio />}
+                label="Component"
+                {...register("type")}
+              />
+            </RadioGroup>
           </Grid>
           <br />
 

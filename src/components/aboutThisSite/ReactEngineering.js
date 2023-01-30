@@ -21,12 +21,11 @@ export default function ReactEngineering() {
         width: "65%",
         // padding: 20,
         // justifyContent: "center",
-        // marginBottom: "1rem",
         textAlign: "justify",
-        // backgroundColor: "#E85B25",
         backgroundColor: "white",
-        // width: "100%",
         padding: 10,
+        marginBottom: 20,
+        // border: "4px solid #FF6600",
       }}
     >
       <Typography
@@ -64,9 +63,19 @@ export default function ReactEngineering() {
           // },
         }}
       >
-        Using ReactJS and Node I create single-page apps and components capable
+        <p style={{ lineHeight: 1 }}>This is my portfolio.</p>
+        <p style={{ lineHeight: 1 }}>It's built with React and Firebase.</p>
+        <p style={{ lineHeight: 1 }}>
+          I've also implemented other frameworks & languages such as React
+          Native, Node, Python, and Bash.
+        </p>
+        <p style={{ lineHeight: 1 }}>
+          I'll be posting components and other things as I explore the web.
+        </p>
+        {/* <p style={{ lineHeight: 1 }}>I aim to master my computer.</p> */}
+        {/* Using ReactJS and Node I create single-page apps and components capable
         of monetization, data charting, api calls, user authentication and
-        authorization, database and context management, and more!
+        authorization, database and context management, and more! */}
       </div>
     </Paper>
   );

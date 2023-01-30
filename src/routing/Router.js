@@ -22,9 +22,10 @@ const Router = () => {
       style={{
         display: "flex",
         flexDirection: "column",
-        maxWidth: "1000px",
-        overflowY: "hidden",
+        // width: "1500px",
+        // overflowY: "hidden",
         position: "relative",
+        // backgroundColor: "#0b031f",
       }}
     >
       <BrowserRouter>

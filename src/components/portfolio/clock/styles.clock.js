@@ -9,7 +9,7 @@ let styles = {
     height: "4rem",
     justifyContent: "center",
     alignItems: "center",
-    // backgroundColor: "#e02525",
+    backgroundColor: "#e02525",
     borderRadius: "20px",
     // minWidth: "300px",
   },

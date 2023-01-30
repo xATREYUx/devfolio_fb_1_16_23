@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 
 //console.log("App index Initiating...");
+
 createRoot(document.getElementById("root")).render(<App />);
 
 // import React from "react";

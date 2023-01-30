@@ -10,7 +10,6 @@ import { theme } from "./theme";
 import ErrorBoundary from "./components/ErrorBoundary";
 
 export const App = () => {
-  //console.log("ENVIRONMENT: ", process.env.NODE_ENV);
   return (
     // <ErrorBoundary section="firebase">
     <FirebaseProvider>

@@ -10,6 +10,7 @@ import { Button, Grid, Hidden, Paper, Typography } from "@mui/material";
 import EditPostPage from "../components/posts/editPost";
 import { AuthContext } from "../providers/AuthProvider";
 import { styled } from "@mui/system";
+import PortfolioItem from "../components/portfolio/portfolioItem";
 
 const PostPage = (props) => {
   const { profile } = useContext(AuthContext);
@@ -53,14 +54,7 @@ const PostPage = (props) => {
 
   return !editMode ? (
     <PageContainer>
-      <Grid
-        container
-        style={{}}
-        // align="center"
-        spacing={2}
-        xs={12}
-        sm={12}
-      >
+      <Grid container spacing={2} xs={12} sm={12}>
         <Grid item xs={12} sm={12} md={6} align="center">
           <Paper style={{ height: "300px" }}>
             <img
@@ -97,19 +91,30 @@ const PostPage = (props) => {
               flex: 1,
               // height: "100%",
               // width: "100%",
+              paddingTop: 15,
               paddingLeft: 15,
               paddingRight: 15,
-              paddingBottom: 20,
+              paddingBottom: 25,
               minHeight: "600px",
             }}
           >
-            <Typography variant="h3">{postDetails.title}</Typography>
-            <br />
-            <Typography variant="blogPost">{postDetails.caption}</Typography>
-            <br />
-            <Linkify>
-              <Typography variant="blogPost">{postDetails.content}</Typography>
-            </Linkify>
+            {postDetails.postType === "component" ? (
+              <PortfolioItem componentIndex={postDetails.componentIndex} />
+            ) : (
+              <div>
+                <Typography variant="h3">{postDetails.title}</Typography>
+                <br />
+                <Typography variant="blogPost">
+                  {postDetails.caption}
+                </Typography>
+                <br />
+                <Linkify>
+                  <Typography variant="blogPost">
+                    {postDetails.content}
+                  </Typography>
+                </Linkify>
+              </div>
+            )}
           </Paper>
 
           <FooterLogo
